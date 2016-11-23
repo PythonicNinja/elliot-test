@@ -8,3 +8,11 @@ from utils.reverse import reverse_num
 ])
 def test_reverse_num(value, expected_result):
     assert reverse_num(value) == expected_result
+
+
+@pytest.mark.parametrize('value', [
+    'string',
+])
+def test_unexpected_type(value):
+    with pytest.raises(ValueError):
+        reverse_num(value)
