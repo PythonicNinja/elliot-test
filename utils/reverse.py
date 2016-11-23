@@ -1,3 +1,9 @@
+from math import log10
+
+
+def how_many_digits(number):
+    return int(log10(number))
+
 
 def reverse_num(value):
     if not isinstance(value, int):
@@ -6,4 +12,7 @@ def reverse_num(value):
             'Passed type = %s', type(value))
     if -10 < value < 10:
         return value
-    return int(str(value)[::-1])
+
+    last_digit = value % 10
+    rest = value // 10
+    return last_digit * 10 ** how_many_digits(value) + reverse_num(rest)
