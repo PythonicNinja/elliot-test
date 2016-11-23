@@ -1,9 +1,3 @@
-from math import log10
-
-
-def how_many_digits(number):
-    return int(log10(number))
-
 
 def reverse_num(value):
     if not isinstance(value, int):
@@ -13,6 +7,15 @@ def reverse_num(value):
     if -10 < value < 10:
         return value
 
-    last_digit = value % 10
-    rest = value // 10
-    return last_digit * 10 ** how_many_digits(value) + reverse_num(rest)
+    result = None
+    while value != 0:
+        last_digit = value % 10
+
+        if result is None:
+            result = last_digit
+        else:
+            result = result * 10 + last_digit
+
+        value //= 10
+
+    return result
