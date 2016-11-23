@@ -5,6 +5,7 @@ from utils.reverse import reverse_num
 
 @pytest.mark.parametrize('value,expected_result', [
     (130, 31),
+    (123, 321),
     (-9, -9),
     (9, 9),
 ])
